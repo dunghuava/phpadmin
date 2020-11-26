@@ -9,5 +9,14 @@
         th.lable{
             width: 180px;
         }
+        td{
+            .form-control{
+                width: 25em;
+            }
+        }
     }
+}
+
+.btn{
+    padding: .185rem .75rem;
 }

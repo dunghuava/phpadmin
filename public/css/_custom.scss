@@ -341,7 +341,7 @@
     background: none;
 }
 .nav-sm > .nav.side-menu > li.active-sm > a {
-  color: #1ABB9C !important;
+  color: $secondary !important;
 }
 .nav-sm .nav.side-menu li a i.toggle-up {
   display: none !important;
@@ -356,9 +356,9 @@
   left: 100%;
   position: absolute;
   top: 0;
-  width: 210px;
+  width: $sibar_w;
   z-index: 4000;
-  background: #3E5367;
+  background: $primary;
   display: none;
 }
 .nav-sm ul.nav.child_menu li {
@@ -646,7 +646,7 @@ body .container.body .right_col {
 }
 body {
   color: #73879C;
-  background: #f7f7f7;
+  background: $primary;
   font-family: "Helvetica Neue", Roboto, Arial, "Droid Sans", sans-serif;
   font-size: 13px;
   font-weight: 400;
@@ -887,11 +887,26 @@ a:hover, a:focus {
   display: block;
   padding: 13px 15px 12px;
 }
-.nav.side-menu> li.current-page, .nav.side-menu> li.active {
-  border-right: 5px solid #1ABB9C;
-}
 .nav li.current-page {
+  background: $secondary;
+  &::after{
+    right: 0;
+    border: solid 8px transparent;
+    content: " ";
+    height: 0;
+    width: 0;
+    position: absolute;
+    pointer-events: none;
+    border-right-color: #f1f1f1;
+    top: 50%;
+    margin-top: -8px;
+  }
+}
+.nav.child_menu li.current-page {
   background: rgba(255, 255, 255, 0.05);
+  &::after{
+    display: none;
+  }
 }
 .nav li li li.current-page {
   background: none;
@@ -900,15 +915,19 @@ a:hover, a:focus {
   color: #fff;
 }
 .nav.side-menu> li.active > a {
-  text-shadow: rgba(0, 0, 0, 0.25) 0 -1px 0;
-  background: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #5b6479), color-stop(100%, #4c5566)), #686e78;
-  background: -webkit-linear-gradient(#334556, #2C4257), $primary;
-  background: -moz-linear-gradient(#334556, #2C4257), $primary;
-  background: -o-linear-gradient(#334556, #2C4257), $primary;
-  background: linear-gradient(#334556, #2C4257), $primary;
-  -webkit-box-shadow: rgba(0, 0, 0, 0.25) 0 1px 0, inset rgba(255, 255, 255, 0.16) 0 1px 0;
-  -moz-box-shadow: rgba(0, 0, 0, 0.25) 0 1px 0, inset rgba(255, 255, 255, 0.16) 0 1px 0;
-  box-shadow: rgba(0, 0, 0, 0.25) 0 1px 0, inset rgba(255, 255, 255, 0.16) 0 1px 0;
+  background: $secondary;
+  &::after{
+    right: 0;
+    border: solid 8px transparent;
+    content: " ";
+    height: 0;
+    width: 0;
+    position: absolute;
+    pointer-events: none;
+    border-right-color: #f1f1f1;
+    top: 50%;
+    margin-top: -8px;
+  }
 }
 .navbar-brand, .navbar-nav>li>a {
   font-weight: 500;
@@ -2415,10 +2434,6 @@ span.section {
   color: #333;
   border: 0;
   border-bottom: 1px solid #e5e5e5;
-}
-.form-control {
-  border-radius: 0;
-  width: 100%;
 }
 .form-horizontal .control-label {
   padding-top: 8px

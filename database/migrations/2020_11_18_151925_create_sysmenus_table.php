@@ -18,7 +18,7 @@ class CreateSysmenusTable extends Migration
             $table->string('title');
             $table->string('icon')->nullable();
             $table->string('route');
-            $table->string('parent_id')->default(0);
+            $table->string('parrent_id')->default(0);
             $table->Integer('priority')->default(0);
             $table->tinyInteger('active')->default(1)->comment('0=hide/1=show');
             $table->softDeletes('deleted_at',0);

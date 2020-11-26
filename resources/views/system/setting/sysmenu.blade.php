@@ -3,34 +3,35 @@
 @section('content')
 <div class="row">
     <div class="col-md-12">
-        <form action="" class="form-group" data-parsley-validate>
+        <form method="post" action="" class="form-group" data-parsley-validate>
             @csrf
             <table class="table">
                 <tr>
                     <th class="lable">Tên danh mục</th>
-                    <td><input name="title" required type="text" class="form-control col-md-4"></td>
+                    <td><input name="title" type="text" class="form-control "></td>
                 </tr>
                 <tr>
                     <th class="lable">Icon</th>
-                    <td><input name="icon" required type="text" class="form-control col-md-4"></td>
+                    <td><input name="icon" type="text" class="form-control "></td>
                 </tr>
                 <tr>
                     <th class="lable">Route</th>
-                    <td><input name="route" required type="text" class="form-control col-md-4"></td>
+                    <td><input name="route" type="text" class="form-control "></td>
                 </tr>
                 <tr>
                     <th class="lable">Thuộc về danh mục</th>
                     <td>
-                        <select name="parrent_id" id="parrent_id" class="form-control col-md-4">
+                        <select name="parrent_id" id="parrent_id" class="form-control ">
                             <option value="0">Chọn làm danh mục cha</option>
-                            <option value="0">Bảo trì, nâng cấp</option>
-                            <option value="0">Tạm khóa</option>
+                            @foreach ($sysmenus as $menu)
+                                <option value="{{$menu['id']}}">{{$menu['title']}}</option>
+                            @endforeach
                         </select>
                     </td>
                 </tr>
                 <tr>
                     <th class="lable">Độ ưu tiên</th>
-                    <td><input name="priority" type="number" class="form-control col-md-4"></td>
+                    <td><input name="priority" type="number" class="form-control "></td>
                 </tr>
                 <tr>
                     <th class="lable">Trạng thái</th>
@@ -47,8 +48,7 @@
                 </tr>
                 <tr>
                     <td colspan="2">
-                        <button class="btn btn-success" type="submit">Lưu lại</button>
-                        <button class="btn btn-danger" type="button">Hủy bỏ</button>
+                        <button class="btn btn-primary" type="submit">Cập nhật</button>
                     </td>
                 </tr>
             </table>

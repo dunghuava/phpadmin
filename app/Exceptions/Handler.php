@@ -48,7 +48,7 @@ class Handler extends ExceptionHandler
     {
         if ($this->isHttpException($exception)) {
             if ($exception->getStatusCode() == 404) {
-                return response()->view('system.dasboard.index', [], 404);
+                //return response()->view('system.default', [], 404);
             }
         }
         return parent::render($request, $exception);

@@ -14,6 +14,7 @@
     <div id="login">
         <p class="message">Chào mừng đến với phpAdmin<br> Nền tảng website admin <strong>tốt nhất</strong></p>
         <form name="loginform" id="loginform" method="post">
+            @csrf
             <p>
                 <label for="username">Tên tài khoản</label>
                 <input type="text" name="username" id="username" class="input" value="" size="20" autocapitalize="off">
@@ -24,10 +25,8 @@
                     <input type="text" name="password" id="password" class="input password-input" value="" size="20">
                 </div>
             </div>
-            <p class="forgetmenot"><input name="rememberme" type="checkbox" id="rememberme" value="forever"> <label
-                    for="rememberme">Nhớ đăng nhập</label></p>
             <p class="submit">
-                <input style="width:100%" type="submit" name="wp-submit" id="wp-submit" class="button button-primary button-large"
+                <input style="width:100%" type="submit" name="submit" id="wp-submit" class="button button-primary button-large"
                     value="Đăng nhập">
             </p>
         </form>

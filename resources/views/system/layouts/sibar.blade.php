@@ -1,3 +1,6 @@
+<?php
+  $sysmenu = App\Http\Controllers\Controller::getSysMenu();
+?>
 <div class="col-md-3 left_col">
     <div class="left_col scroll-view">
       <div class="clearfix"></div>
@@ -7,8 +10,8 @@
           <img src="{{asset('public/images/img.jpg')}}" alt="..." class="img-circle profile_img">
         </div>
         <div class="profile_info">
-          <span>Hi</span>
-          <h2>John Doe</h2>
+          <span>Online</span>
+          <h2>{{Auth::user()->fullname}}</h2>
         </div>
       </div>
       <!-- /menu profile quick info -->
@@ -17,24 +20,27 @@
       <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
         <div class="menu_section">
           <h3>General</h3>
-          <ul class="nav side-menu" style="">
-            <li><a><i class="fa fa-home"></i> Home <span class="fa fa-chevron-down"></span></a>
-              <ul class="nav child_menu">
-                <li><a href="{{asset('admin')}}">Dashboard</a></li>
-                <li><a href="{{asset('admin')}}">Dashboard2</a></li>
-                <li><a href="{{asset('admin')}}">Dashboard3</a></li>
-              </ul>
-            </li>
-            {{-- setting --}}
-            <li><a><i class="fa fa-cog"></i> Cài đặt <span class="fa fa-chevron-down"></span></a>
-              <ul class="nav child_menu">
-                <li><a href="{{asset('admin/setting')}}">Tùy chọn tổng quan</a></li>
-                <li><a href="{{asset('admin/setting/smtp')}}">Cài đặt SMTP</a></li>
-                <li><a href="{{asset('admin/setting/ecommerce')}}">E-commerce</a></li>
-                <li><a href="{{asset('admin/setting/sysmenu')}}">Danh mục hệ thống</a></li>
-              </ul>
-            </li>
-            {{-- setting --}}
+          <ul class="nav side-menu">
+            {{-- sysmenu --}}
+            @foreach ($sysmenu as $menu)              
+              <li data-priority="{{$menu['priority']}}">
+                <a {{count($menu['childs']) == 0 ? 'href='.asset($menu['route']).'':'' }}><i class="{{$menu['icon']}}"></i> {{$menu['title']}}
+                   @if (count($menu['childs']) > 0)
+                      <span class="fa fa-chevron-down"></span>
+                   @endif
+                </a>
+                  @if (count($menu['childs']) > 0)
+                  <ul class="nav child_menu">
+                      @foreach ($menu['childs'] as $sub)
+                        <li data-priority="{{$sub['priority']}}">
+                            <a href="{{asset($sub['route'])}}">{{$sub['title']}}</a>
+                        </li>
+                      @endforeach
+                  </ul>
+                  @endif
+              </li>
+            @endforeach
+            {{-- sysmenu --}}
           </ul>
         </div>
       </div>
@@ -50,7 +56,7 @@
         <a data-toggle="tooltip" data-placement="top" title="" data-original-title="Lock">
           <span class="glyphicon glyphicon-eye-close" aria-hidden="true"></span>
         </a>
-        <a data-toggle="tooltip" data-placement="top" title="" href="login.html" data-original-title="Logout">
+        <a data-toggle="tooltip" data-placement="top" title="" data-original-title="Logout">
           <span class="glyphicon glyphicon-off" aria-hidden="true"></span>
         </a>
       </div>

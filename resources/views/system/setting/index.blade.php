@@ -7,23 +7,23 @@
             <table class="table">
                 <tr>
                     <th class="lable">Tên website</th>
-                    <td><input type="text" class="form-control col-md-4"></td>
+                    <td><input type="text" class="form-control "></td>
                 </tr>
                 <tr>
                     <th class="lable">Giới thiệu</th>
-                    <td><textarea type="text" class="form-control col-md-4"></textarea></td>
+                    <td><textarea type="text" class="form-control "></textarea></td>
                 </tr>
                 <tr>
                     <th class="lable">Địa chỉ website</th>
-                    <td><input type="text" class="form-control col-md-4"></td>
+                    <td><input type="text" class="form-control "></td>
                 </tr>
                 <tr>
                     <th class="lable">Màu sibar</th>
-                    <td><input type="text" class="form-control col-md-4"></td>
+                    <td><input type="text" class="form-control "></td>
                 </tr>
                 <tr>
                     <th class="lable">Màu text sibar</th>
-                    <td><input type="text" class="form-control col-md-4"></td>
+                    <td><input type="text" class="form-control "></td>
                 </tr>
                 <tr>
                     <th class="lable">Thông báo</th>
@@ -41,7 +41,7 @@
                 <tr>
                     <th class="lable">Trạng thái website</th>
                     <td>
-                        <select name="" id="" class="form-control col-md-4">
+                        <select name="" id="" class="form-control ">
                             <option value="0">Đang hoạt động</option>
                             <option value="0">Bảo trì, nâng cấp</option>
                             <option value="0">Tạm khóa</option>
