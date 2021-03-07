@@ -1,6 +1,3 @@
-<?php
-  $sysmenu = App\Http\Controllers\Controller::getSysMenu();
-?>
 <div class="col-md-3 left_col">
     <div class="left_col scroll-view">
       <div class="clearfix"></div>
@@ -19,27 +16,65 @@
       <!-- sidebar menu -->
       <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
         <div class="menu_section">
-          <h3>General</h3>
+          <h3>Danh mục hệ thống</h3>
           <ul class="nav side-menu">
             {{-- sysmenu --}}
-            @foreach ($sysmenu as $menu)              
-              <li data-priority="{{$menu['priority']}}">
-                <a {{count($menu['childs']) == 0 ? 'href='.asset($menu['route']).'':'' }}><i class="{{$menu['icon']}}"></i> {{$menu['title']}}
-                   @if (count($menu['childs']) > 0)
-                      <span class="fa fa-chevron-down"></span>
-                   @endif
+            <li>
+              <a><i class="fa fa-home"></i>&nbsp;Trang chủ</a>
+            </li>
+            <li>
+              <a><i class="fa fa-database"></i>&nbsp;Danh mục
+                  <span class="fa fa-chevron-down"></span>
+              </a>
+                <ul class="nav child_menu">
+                    <li><a href="">Submenu</a></li>
+                    <li><a href="">Submenu</a></li>
+                    <li><a href="">Submenu</a></li>
+                </ul>
+            </li>
+              <li>
+                <a><i class="fa fa-database"></i>&nbsp;Sản phẩm
+                    <span class="fa fa-chevron-down"></span>
                 </a>
-                  @if (count($menu['childs']) > 0)
                   <ul class="nav child_menu">
-                      @foreach ($menu['childs'] as $sub)
-                        <li data-priority="{{$sub['priority']}}">
-                            <a href="{{asset($sub['route'])}}">{{$sub['title']}}</a>
-                        </li>
-                      @endforeach
+                      <li><a href="">Submenu</a></li>
+                      <li><a href="">Submenu</a></li>
+                      <li><a href="">Submenu</a></li>
                   </ul>
-                  @endif
               </li>
-            @endforeach
+              <li>
+                <a><i class="fa fa-anchor"></i>&nbsp;Mở rộng
+                    <span class="fa fa-chevron-down"></span>
+                </a>
+                  <ul class="nav child_menu">
+                      <li><a href="">Submenu</a></li>
+                      <li><a href="">Submenu</a></li>
+                      <li><a href="">Submenu</a></li>
+                  </ul>
+              </li>
+              <li>
+                <a><i class="fa fa-users"></i>&nbsp;Tài khoản
+                    <span class="fa fa-chevron-down"></span>
+                </a>
+                  <ul class="nav child_menu">
+                      <li><a href="">Submenu</a></li>
+                      <li><a href="">Submenu</a></li>
+                      <li><a href="">Submenu</a></li>
+                  </ul>
+              </li>
+              <li>
+                <a><i class="fa fa-cogs"></i>&nbsp;Cài đặt
+                    <span class="fa fa-chevron-down"></span>
+                </a>
+                  <ul class="nav child_menu">
+                      <li><a href="">Submenu</a></li>
+                      <li><a href="">Submenu</a></li>
+                      <li><a href="">Submenu</a></li>
+                  </ul>
+              </li>
+              <li>
+                <a href="admin/logout"><i class="fa fa-sign-out"></i>&nbsp;Thoát</a>
+              </li>
             {{-- sysmenu --}}
           </ul>
         </div>
